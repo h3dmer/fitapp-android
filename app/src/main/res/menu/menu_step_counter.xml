@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item
+            android:id="@+id/set_goal"
+            android:title="@string/step_counter_set_goal"
+            app:showAsAction="never" />
+
+        <item
+            android:id="@+id/turn_off_set_counter"
+            android:title="@string/step_counter_turn_off"
+            app:showAsAction="never" />
+
+</menu>

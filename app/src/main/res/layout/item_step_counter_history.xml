@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dailySteps"
+            type="com.sport.project.fitapp.db.entities.DailySteps" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="false"
+        app:cardCornerRadius="24dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image_step_history"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_extra_small"
+                android:src="@drawable/ic_directions_walk_24px"
+                android:tint="@color/black"
+                app:layout_constraintEnd_toStartOf="@id/steps_value"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/steps_value"
+                android:layout_width="wrap_content"
+                android:layout_height="21dp"
+                android:layout_marginStart="@dimen/margin_extra_small"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/logoColor"
+                android:text="@{String.format(@string/step_counter_history_steps, dailySteps.steps)}"
+                app:layout_constraintBottom_toBottomOf="@+id/image_step_history"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/image_step_history"
+                tools:text="6363 steps" />
+
+            <TextView
+                android:id="@+id/date_step_history_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="#BABABA"
+                android:text="@{dailySteps.formatDisplayingDate()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_step_history"
+                tools:text="16.05.2020" />
+
+            <TextView
+                android:id="@+id/distance_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/logoColor"
+                android:text="@{String.format(@string/distance, dailySteps.stepsToMeters())}"
+                app:layout_constraintTop_toBottomOf="@id/date_step_history_date"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Distance: " />
+
+            <TextView
+                android:id="@+id/burned_calories_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/logoColor"
+                android:text="@{String.format(@string/burned_calories, dailySteps.basicStepCaloriesBurned())}"
+                app:layout_constraintTop_toBottomOf="@id/date_step_history_date"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Calories: 150 kcal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

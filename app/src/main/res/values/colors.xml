@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorLigh">#46B5D1</color>
+    <color name="colorPrimary">#151965</color>
+    <color name="colorPrimaryDark">#32407B</color>
+    <color name="colorAccent">#515585</color>
+
+    <color name="logoColor">#121149</color>
+    <color name="white">#FFFFFF</color>
+    <color name="fitapp_blue">#2245FE</color>
+
+    <color name="bottomBarColor">#3315B1</color>
+
+    <color name="black">#de000000</color>
+    <color name="sunflower_gray_50">#fafafa</color>
+    <color name="sunflower_gray_50_a600">#99fafafa</color>
+    <color name="sunflower_green_300">#6dc790</color>
+    <color name="sunflower_green_500">#49bb79</color>
+    <color name="sunflower_green_700">#005d2b</color>
+    <color name="sunflower_green_900">#1a231e</color>
+    <color name="sunflower_white">#deffffff</color>
+    <color name="sunflower_yellow_300">#f8f99f</color>
+    <color name="sunflower_yellow_500">#ffff63</color>
+
+    <color name="step_counter_wave">#BAEAEA</color>
+
+</resources>

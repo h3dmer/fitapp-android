@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="food"
+            type="com.sport.project.fitapp.network.networkDTO.NaturalLanguageFoods" />
+
+        <import type="com.sport.project.fitapp.utils.StringExtKt" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:elevation="8dp"
+        android:onClick="@{clickListener}"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/food_image_view"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_weight="0"
+                android:contentDescription="@string/app_name"
+                android:transitionName="@{String.valueOf(food.ndb_no)}"
+                app:imageUrl="@{food.photo.highRes}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="PrivateResource"
+                tools:src="@drawable/common_google_signin_btn_icon_dark" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/qty_number"
+                android:firstPart="@{@string/qty}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="0"
+                android:fontFamily="@font/poppins"
+                android:secondPart="@{food.serving_qty}"
+                app:layout_constraintEnd_toStartOf="@+id/food_unit"
+                app:layout_constraintStart_toEndOf="@id/food_image_view"
+                app:layout_constraintTop_toBottomOf="@id/food_name"
+                tools:text="Qty: 1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/food_unit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_weight="0"
+                android:fontFamily="@font/poppins"
+                android:firstPartWithString="@{@string/unit}"
+                android:secondPartWithString="@{food.serving_unit}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/qty_number"
+                app:layout_constraintTop_toBottomOf="@id/food_name"
+                tools:text="Unit: cup" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/food_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins"
+                android:gravity="center|start"
+                android:maxLines="1"
+                android:text="@{food.food_name}"
+                android:transitionName="@{food.food_name}"
+                android:textColor="@color/logoColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/food_image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="mashedsdasdf" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/food_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0"
+                android:fontFamily="@font/poppins"
+                android:firstPart="@{@string/calories}"
+                android:secondPart="@{food.nf_calories}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/qty_number"
+                app:layout_constraintTop_toBottomOf="@id/food_unit"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="Calories: 120" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/food_weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
+                android:firstPart="@{@string/weight}"
+                android:secondPart="@{food.serving_weight_grams}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/qty_number"
+                app:layout_constraintTop_toBottomOf="@+id/qty_number"
+                tools:text="Weight: 330g" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

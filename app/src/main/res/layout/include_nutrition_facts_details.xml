@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.sport.project.fitapp.ui.foodmacrodetails.ui.FoodMacroDetailsViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintTop_toBottomOf="@id/nutrition_facts">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <TextView
+                android:id="@+id/calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/calories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Calories: " />
+
+            <TextView
+                android:id="@+id/calories_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="@{viewModel.getValueFromList(208)}"
+                app:layout_constraintBottom_toBottomOf="@id/calories"
+                app:layout_constraintStart_toEndOf="@id/calories"
+                app:layout_constraintTop_toTopOf="@id/calories"
+                tools:text="205" />
+
+            <TextView
+                android:id="@+id/calories_from_fat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/calories_from_fat"
+                app:layout_constraintBottom_toBottomOf="@id/calories_from_fat_value"
+                app:layout_constraintEnd_toStartOf="@id/calories_from_fat_value"
+                app:layout_constraintTop_toTopOf="@id/calories_from_fat_value"
+                tools:text="Calories from fat: " />
+
+            <TextView
+                android:id="@+id/calories_from_fat_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="@{viewModel.getValueFromList(204)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="0" />
+
+            <TextView
+                android:id="@+id/total_fat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/total_fat"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calories"
+                tools:text="Total Fat: " />
+
+            <TextView
+                android:id="@+id/total_fat_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="@{viewModel.getValueFromList(204)}"
+                app:layout_constraintBottom_toBottomOf="@id/total_fat"
+                app:layout_constraintStart_toEndOf="@id/total_fat"
+                app:layout_constraintTop_toTopOf="@id/total_fat"
+                tools:text="0.4g" />
+
+            <TextView
+                android:id="@+id/cholesterol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/cholesterol"
+                app:layout_constraintBottom_toBottomOf="@id/cholesterol_value"
+                app:layout_constraintEnd_toStartOf="@id/cholesterol_value"
+                app:layout_constraintTop_toTopOf="@id/cholesterol_value"
+                tools:text="Cholesterol: " />
+
+            <TextView
+                android:id="@+id/cholesterol_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="@{viewModel.getValueFromList(601)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/calories_from_fat_value"
+                tools:text="0mg" />
+
+            <TextView
+                android:id="@+id/sodium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/sodium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/total_fat"
+                tools:text="Sodium: " />
+
+            <TextView
+                android:id="@+id/sodium_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="@{viewModel.getValueFromList(307)}"
+                app:layout_constraintBottom_toBottomOf="@id/sodium"
+                app:layout_constraintStart_toEndOf="@id/sodium"
+                app:layout_constraintTop_toTopOf="@id/sodium"
+                tools:text="1.6g" />
+
+            <TextView
+                android:id="@+id/potassium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/potassium"
+                app:layout_constraintBottom_toBottomOf="@id/potassium_value"
+                app:layout_constraintEnd_toStartOf="@id/potassium_value"
+                app:layout_constraintTop_toTopOf="@id/potassium_value"
+                tools:text="Potassium: " />
+
+            <TextView
+                android:id="@+id/potassium_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="@{viewModel.getValueFromList(306)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cholesterol_value"
+                tools:text="55mg" />
+
+            <TextView
+                android:id="@+id/total_carbohydrates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/total_carbohydrates"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sugars"
+                tools:text="Total Carbohydrates: " />
+
+            <TextView
+                android:id="@+id/total_carbohydrates_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="@{viewModel.getValueFromList(205)}"
+                app:layout_constraintBottom_toBottomOf="@id/total_carbohydrates"
+                app:layout_constraintStart_toEndOf="@id/total_carbohydrates"
+                app:layout_constraintTop_toTopOf="@id/total_carbohydrates"
+                tools:text="1.6g" />
+
+            <TextView
+                android:id="@+id/protein"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/protein"
+                app:layout_constraintBottom_toBottomOf="@id/protein_value"
+                app:layout_constraintEnd_toStartOf="@id/protein_value"
+                app:layout_constraintTop_toTopOf="@id/protein_value"
+                tools:text="Protein: " />
+
+            <TextView
+                android:id="@+id/protein_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="@{viewModel.getValueFromList(203)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/potassium_value"
+                tools:text="4.3g" />
+
+            <TextView
+                android:id="@+id/sugars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/sugars"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sodium"
+                tools:text="Sugars: " />
+
+            <TextView
+                android:id="@+id/sugars_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="@{viewModel.getValueFromList(269)}"
+                app:layout_constraintBottom_toBottomOf="@id/sugars"
+                app:layout_constraintStart_toEndOf="@id/sugars"
+                app:layout_constraintTop_toTopOf="@id/sugars"
+                tools:text="0.1g" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

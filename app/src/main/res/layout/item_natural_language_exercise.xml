@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="exercise"
+            type="com.sport.project.fitapp.network.networkDTO.NaturalLanguageExercise" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/exercise_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/exercise_image_view"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:imageUrl="@{exercise.photo.thumb}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:src="@drawable/common_google_signin_btn_icon_dark"
+                tools:ignore="PrivateResource"
+                android:contentDescription="@string/app_name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/exercise_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@{exercise.name}"
+                app:layout_constraintStart_toEndOf="@id/exercise_image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/met_value"
+                tools:text="running" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/met_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@{exercise.met.toString()}"
+                app:layout_constraintStart_toEndOf="@id/exercise_name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/exercise_duration"
+                tools:text="9.8"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/exercise_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@{exercise.duration_min.toString()}"
+                app:layout_constraintStart_toEndOf="@id/met_value"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/calories_expended"
+                tools:text="120 min"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/calories_expended"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@{exercise.nf_calories.intValue() + ` kcal`}"
+                app:layout_constraintStart_toEndOf="@id/exercise_duration"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="343 kcal"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

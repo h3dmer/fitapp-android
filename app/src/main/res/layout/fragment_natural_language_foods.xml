@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.naturallanguagefoods.ui.NaturalLanguageFoodsFragment">
+
+    <data>
+        <variable
+            name="calories_result"
+            type="Double" />
+        <variable
+            name="viewModel"
+            type="com.sport.project.fitapp.ui.nutritions.ui.NutritionViewModel" />
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/header_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/poppins"
+                android:text="@string/natural_language_foods_header_text"
+                android:textColor="@color/logoColor"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/food_text_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                app:boxStrokeColor="@color/logoColor"
+                app:boxStrokeWidth="2dp"
+                app:helperText="Eg. 400g rice, 2 chicken legs, 0.5l pepsi"
+                app:helperTextEnabled="true"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/header_text_view">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/food_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="top"
+                    android:hint="What have you eaten recently?"
+                    android:inputType="textMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/calculate_foods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="calculate"
+                android:textSize="24sp"
+                app:backgroundTint="@color/logoColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/food_text_input_layout" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/food_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:overScrollMode="never"
+                android:clipToPadding="false"
+                android:paddingBottom="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/calculate_foods"
+                app:layout_constraintBottom_toTopOf="@id/resultTextView"
+                tools:listitem="@layout/item_natural_language_exercise" />
+
+            <TextView
+                android:id="@+id/resultTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginBottom="8dp"
+                android:gravity="center|end"
+                android:layout_gravity="center|end"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/black"
+                app:showOnSuccess="@{viewModel.foodsViewState}"
+                app:caloriesResult="@{calories_result}"
+                app:layout_constraintTop_toBottomOf="@id/food_list"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="Overall 3200" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_foods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/food_list"
+                app:layout_constraintStart_toStartOf="@id/food_list"
+                app:layout_constraintTop_toTopOf="@id/food_list"
+                tools:visibility="visible"
+                app:showOnLoading="@{viewModel.foodsViewState}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/workoutsListFragment">
+
+    <fragment
+        android:id="@+id/macroFragment"
+        android:name="com.sport.project.fitapp.ui.macro.MacroFragment"
+        android:label="fragment_macro"
+        tools:layout="@layout/fragment_macro" />
+    <fragment
+        android:id="@+id/workoutsListFragment"
+        android:name="com.sport.project.fitapp.ui.traininglist.ui.WorkoutsListFragment"
+        android:label="fragment_workouts_list"
+        tools:layout="@layout/fragment_workouts_list">
+        <action
+            android:id="@+id/action_workoutsListFragment_to_workoutListDetailsFragment"
+            app:destination="@id/workoutListDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_workoutsListFragment_to_workoutsFragment"
+            app:destination="@id/workoutsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepCounterFragment"
+        android:name="com.sport.project.fitapp.ui.stepcounter.ui.StepCounterFragment"
+        android:label="fragment_step_counter"
+        tools:layout="@layout/fragment_step_counter" >
+        <action
+            android:id="@+id/action_stepCounterFragment_to_stepCounterHistoryFragment"
+            app:destination="@id/stepCounterHistoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculateCaloriesFragment"
+        android:name="com.sport.project.fitapp.ui.calculatecalories.CalculateCaloriesFragment"
+        android:label="fragment_calculate_calories"
+        tools:layout="@layout/fragment_calculate_calories" />
+    <fragment
+        android:id="@+id/nutritionViewPagerFragment"
+        android:name="com.sport.project.fitapp.ui.nutritions.ui.NutritionViewPagerFragment"
+        android:label="fragment_search_food"
+        tools:layout="@layout/fragment_nutritions_view_pager" >
+        <action
+            android:id="@+id/action_nutritionViewPagerFragment_to_foodMacroDetailsFragment"
+            app:destination="@id/foodMacroDetailsFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/workoutListDetailsFragment"
+        android:name="com.sport.project.fitapp.ui.traininglistdetails.ui.WorkoutListDetailsFragment"
+        android:label="fragment_workout_list_details"
+        tools:layout="@layout/fragment_workout_list_details" >
+        <action
+            android:id="@+id/action_workoutListDetailsFragment_to_trainingVideosFragment"
+            app:destination="@id/trainingVideosFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="exercise"
+            app:argType="com.sport.project.fitapp.db.entities.Exercise" />
+    </fragment>
+    <fragment
+        android:id="@+id/trainingVideosFragment"
+        android:name="com.sport.project.fitapp.ui.traininglistvideos.ui.TrainingVideosFragment"
+        android:label="fragment_training_videos"
+        tools:layout="@layout/fragment_training_videos">
+        <argument
+            android:name="exerciseName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodMacroDetailsFragment"
+        android:name="com.sport.project.fitapp.ui.foodmacrodetails.ui.FoodMacroDetailsFragment"
+        android:label="FoodMacroDetilsFragment"
+        tools:layout="@layout/fragment_food_macro_details">
+        <argument
+            android:name="foodDetails"
+            app:argType="com.sport.project.fitapp.network.networkDTO.NaturalLanguageFoods" />
+    </fragment>
+    <fragment
+        android:id="@+id/naturalLanguageExercisesFragment"
+        android:name="com.sport.project.fitapp.ui.naturallanguageexercises.ui.NaturalLanguageExercisesFragment"
+        android:label="fragment_natural_language_exercises"
+        tools:layout="@layout/fragment_natural_language_exercises" />
+    <fragment
+        android:id="@+id/naturalLanguageFoodsFragment"
+        android:name="com.sport.project.fitapp.ui.naturallanguagefoods.ui.NaturalLanguageFoodsFragment"
+        android:label="fragment_natural_language_foods"
+        tools:layout="@layout/fragment_natural_language_foods" >
+        <action
+            android:id="@+id/action_naturalLanguageFoodsFragment_to_foodMacroDetailsFragment"
+            app:destination="@id/foodMacroDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepCounterHistoryFragment"
+        android:name="com.sport.project.fitapp.ui.stepcounterhistory.ui.StepCounterHistoryFragment"
+        android:label="StepCounterHistoryFragment" />
+    <fragment
+        android:id="@+id/workoutsFragment"
+        android:name="com.sport.project.fitapp.ui.workouts.ui.WorkoutsFragment"
+        android:label="fragment_workouts"
+        tools:layout="@layout/fragment_workouts" >
+        <action
+            android:id="@+id/action_workoutsFragment_to_workoutDetailFragment"
+            app:destination="@id/workoutDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <dialog
+        android:id="@+id/workoutsDialog"
+        android:name="com.sport.project.fitapp.ui.workouts.ui.workoutsdialog.WorkoutsDialog"
+        android:label="WorkoutsDialog" >
+        <argument
+            android:name="workout"
+            app:argType="com.sport.project.fitapp.db.entities.Workout" />
+    </dialog>
+    <fragment
+        android:id="@+id/workoutDetailFragment"
+        android:name="com.sport.project.fitapp.ui.workoutdetails.ui.WorkoutDetailFragment"
+        android:label="WorkoutDetailFragment" >
+        <argument
+            android:name="workoutId"
+            app:argType="long" />
+    </fragment>
+
+</navigation>

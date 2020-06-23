@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:width="90dp" android:height="112dp"
+        android:left="10dp">
+        <shape>
+            <stroke android:color="@color/fitapp_blue" />
+            <solid android:color="@android:color/white"/>
+            <corners
+                android:bottomLeftRadius="0dp"
+                android:topLeftRadius="0dp"/>
+        </shape>
+    </item>
+
+    <item android:width="90dp" android:height="112dp"
+        android:left="10dp">
+        <shape>
+            <solid android:color="@android:color/white"/>
+        </shape>
+    </item>
+
+    <item android:width="110dp" android:height="90dp"
+        android:top="11dp">
+        <shape
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <solid android:color="#BDBDBD" />
+            <corners
+                android:bottomLeftRadius="0dp"
+                android:topLeftRadius="0dp"/>
+        </shape>
+    </item>
+
+    <item android:width="15dp" android:height="15dp"
+        android:left="100dp">
+        <rotate android:fromDegrees="45"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:pivotX="0"
+            android:pivotY="0">
+            <shape>
+                <solid android:color="@android:color/white"/>
+            </shape>
+        </rotate>
+    </item>
+
+    <item android:width="15dp" android:height="15dp"
+        android:top="0dp"
+        android:left="10dp">
+        <rotate android:fromDegrees="45"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:pivotX="0"
+            android:pivotY="0">
+            <shape>
+                <stroke android:color="@color/fitapp_blue" />
+                <solid android:color="@android:color/white"/>
+            </shape>
+        </rotate>
+    </item>
+
+    <item android:width="15dp" android:height="15dp"
+        android:top="91dp"
+        android:left="10dp">
+        <rotate android:fromDegrees="45"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:pivotX="0"
+            android:pivotY="0">
+            <shape>
+                <solid android:color="@android:color/white"/>
+            </shape>
+        </rotate>
+    </item>
+
+    <item android:width="16dp" android:height="15dp"
+        android:left="100dp"
+        android:top="91dp">
+        <rotate
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fromDegrees="44"
+            android:pivotX="1"
+            android:pivotY="-5">
+            <shape>
+                <solid android:color="@color/white" />
+            </shape>
+        </rotate>
+    </item>
+
+</layer-list>

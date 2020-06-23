@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        app:key="automaticStepCounting"
+        app:title="@string/auto_step_count"/>
+
+    <SwitchPreferenceCompat
+        app:key="notifications"
+        app:title="@string/notifications"/>
+
+</PreferenceScreen>

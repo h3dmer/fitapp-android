@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable name="viewModel" type="com.sport.project.fitapp.ui.macro.MacroViewModel" />
+        <variable
+            name="fragment"
+            type="com.sport.project.fitapp.ui.macro.MacroFragment" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        tools:context=".ui.macro.MacroFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/presetsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="Presets"
+                android:textColor="@color/logoColor"
+                android:textSize="24sp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/highCarbsButton"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/logoColor"
+                android:fontFamily="@font/poppins_medium"
+                android:text="60/25/15"
+                android:textColor="@color/white"
+                android:onClick="@{() -> fragment.highCarbsChoose()}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/presetsTextView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/moderateButton"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/logoColor"
+                android:fontFamily="@font/poppins_medium"
+                android:text="50/30/20"
+                android:textColor="@color/white"
+                android:onClick="@{() -> fragment.moderateChoose()}"
+                app:layout_constraintEnd_toStartOf="@+id/lowCarbsButton"
+                app:layout_constraintStart_toEndOf="@+id/highCarbsButton"
+                app:layout_constraintTop_toBottomOf="@id/presetsTextView" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lowCarbsButton"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@color/logoColor"
+                android:fontFamily="@font/poppins_medium"
+                android:text="20/40/40"
+                android:textColor="@color/white"
+                android:onClick="@{() -> fragment.lowCarbsChoose()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/presetsTextView" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/carbsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/carbohydrates"
+                android:textColor="@color/logoColor"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/carbohydratesSeekBar"
+                app:layout_constraintStart_toStartOf="@id/carbohydratesSeekBar"
+                app:layout_constraintTop_toBottomOf="@+id/moderateButton" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/carbsValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@{viewModel.carbsLiveData.toString()}"
+                android:textColor="@color/logoColor"
+                android:textSize="16sp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@id/carbsTextView"
+                app:layout_constraintStart_toEndOf="@id/carbsTextView"
+                app:layout_constraintTop_toTopOf="@+id/carbsTextView"
+                tools:text="15" />
+
+            <com.jem.rubberpicker.RubberSeekBar
+                android:id="@+id/carbohydratesSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                app:dampingRatio="0.5"
+                app:elasticBehavior="cubic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/carbsTextView"
+                app:maxValue="100"
+                app:minValue="0"
+                app:stiffness="300" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/proteinsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/proteins"
+                android:textColor="@color/logoColor"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/proteinsSeekBar"
+                app:layout_constraintStart_toStartOf="@id/proteinsSeekBar"
+                app:layout_constraintTop_toBottomOf="@+id/carbohydratesSeekBar" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/proteinsValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@{viewModel.proteinsLiveData.toString()}"
+                android:textColor="@color/logoColor"
+                android:textSize="16sp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@id/proteinsTextView"
+                app:layout_constraintStart_toEndOf="@id/proteinsTextView"
+                app:layout_constraintTop_toTopOf="@+id/proteinsTextView"
+                tools:text="16" />
+
+            <com.jem.rubberpicker.RubberSeekBar
+                android:id="@+id/proteinsSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                app:dampingRatio="0.5"
+                app:elasticBehavior="cubic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/proteinsTextView"
+                app:maxValue="100"
+                app:minValue="0"
+                app:stiffness="300" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/fatsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/fat"
+                android:textColor="@color/logoColor"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/fatSeekBar"
+                app:layout_constraintStart_toStartOf="@id/fatSeekBar"
+                app:layout_constraintTop_toBottomOf="@+id/proteinsSeekBar" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/fatsValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@{viewModel.fatsLiveData.toString()}"
+                android:textColor="@color/logoColor"
+                android:textSize="16sp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@id/fatsTextView"
+                app:layout_constraintStart_toEndOf="@id/fatsTextView"
+                app:layout_constraintTop_toTopOf="@+id/fatsTextView"
+                tools:text="20"/>
+
+            <com.jem.rubberpicker.RubberSeekBar
+                android:id="@+id/fatSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                app:dampingRatio="0.5"
+                app:elasticBehavior="cubic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fatsTextView"
+                app:maxValue="100"
+                app:minValue="0"
+                app:stiffness="300" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/caloriesTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="@string/enter_amout_of_calories"
+                android:textColor="@color/logoColor"
+                android:textSize="24sp"
+                app:layout_constraintTop_toBottomOf="@id/fatSeekBar" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/caloriesTextInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:hint="Calories"
+                app:boxStrokeColor="@color/logoColor"
+                app:boxStrokeWidth="2dp"
+                app:layout_constraintEnd_toStartOf="@+id/calculateCaloriesButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/caloriesTextView">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/caloriesEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/calculateMacroButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:fontFamily="@font/poppins"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="calculate"
+                android:textSize="24sp"
+                android:onClick="@{() -> fragment.calculateMacro()}"
+                app:backgroundTint="@color/logoColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/caloriesTextInputLayout" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/calculateCaloriesButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppins"
+                android:onClick="@{() -> fragment.navigateToCaloriesFragment()}"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:text="Don't know calories"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/caloriesTextInputLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/caloriesTextInputLayout"
+                app:layout_constraintTop_toTopOf="@+id/caloriesTextInputLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

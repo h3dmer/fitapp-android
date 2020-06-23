@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/workoutsListFragment"
+        android:title="@string/bottom_bar_training"
+        android:icon="@drawable/ic_fitness_center_24px"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/stepCounterFragment"
+        android:title="@string/bottom_bar_steps"
+        android:icon="@drawable/ic_directions_walk_24px"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nutritionViewPagerFragment"
+        android:title="@string/bottom_bar_natural"
+        android:icon="@drawable/ic_gesture_black_24dp"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/macroFragment"
+        android:title="@string/bottom_bar_macro"
+        android:icon="@drawable/ic_favorite_border_24px"
+        app:showAsAction="ifRoom" />
+
+</menu>

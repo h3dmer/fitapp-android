@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.sport.project.fitapp.ui.workoutdetails.ui.updateexercisedialog.UpdateExerciseDialogViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/WorkoutsFragmentDialog"
+            app:elevation="0dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/WorkoutsFragmentDialog"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:paddingStart="6dp"
+                android:paddingEnd="16dp"
+                android:theme="@style/WorkoutsFragmentDialog"
+                app:contentInsetStartWithNavigation="0dp"
+                app:navigationIcon="@drawable/mr_dialog_close_light" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/editing_exercise"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/logoColor"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/poppins_semibold"
+                    app:exerciseTitle="@{viewModel}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Sample text" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/muscle_part_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginEnd="32dp"
+                    android:hint="@string/muscles_parts"
+                    android:textColorHint="@color/colorPrimary"
+                    android:theme="@style/InputLayoutOutlined"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:boxStrokeWidth="2dp"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/editing_exercise">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/muscle_part_autocomplete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.muscleName}"
+                        android:cursorVisible="false"
+                        android:focusable="false" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/exercise_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="32dp"
+                    android:hint="@string/exercise"
+                    android:textColorHint="@color/colorPrimary"
+                    android:theme="@style/InputLayoutOutlined"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:boxStrokeWidth="2dp"
+                    app:hintEnabled="true"
+                    app:layout_constraintTop_toBottomOf="@id/muscle_part_layout">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/exercise_menu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.exerciseName}"
+                        android:cursorVisible="false"
+                        android:focusable="false" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/workout_sets"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="32dp"
+                    android:hint="@string/sets"
+                    android:textColorHint="@color/colorPrimary"
+                    android:theme="@style/InputLayoutOutlined"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:boxStrokeWidth="2dp"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/exercise_layout">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/sets_menu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.sets}"
+                        app:setWorkoutsDialogAdapter="@{12}"
+                        android:cursorVisible="false"
+                        android:focusable="false" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mr_dialog_close_dark"
+                    android:tint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/workout_sets"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/workout_sets" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/workout_reps"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="@dimen/margin_normal"
+                    android:layout_marginEnd="32dp"
+                    android:hint="@string/reps"
+                    android:textColorHint="@color/colorPrimary"
+                    android:theme="@style/InputLayoutOutlined"
+                    app:boxStrokeColor="@color/colorPrimary"
+                    app:boxStrokeWidth="2dp"
+                    app:hintEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toBottomOf="@id/exercise_layout">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/reps_menu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.reps}"
+                        app:setWorkoutsDialogAdapter="@{24}"
+                        android:cursorVisible="false"
+                        android:focusable="false" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="openWorkoutMenu"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="openWorkoutDetails"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="workout"
+            type="com.sport.project.fitapp.db.entities.Workout" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_extra_small"
+        android:onClick="@{openWorkoutDetails}"
+        app:rippleColor="@color/fitapp_blue"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/fitapp_blue"
+        app:shapeAppearance="@style/CardView.CutShape">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small">
+
+        <TextView
+            android:id="@+id/workout_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="16sp"
+            android:textColor="@color/logoColor"
+            android:text="@{workout.name}"
+            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Testowy text"/>
+
+        <TextView
+            android:id="@+id/workout_added_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="12sp"
+            android:textColor="#BABABA"
+            android:text="@{`Date added: ` + workout.date}"
+            android:layout_marginTop="@dimen/margin_small"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/workout_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Testowy text"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_dots_black"
+            android:tint="@color/logoColor"
+            android:onClick="@{openWorkoutMenu}"
+            android:backgroundTint="@color/white"
+            android:theme="@style/BlankRippleColor"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

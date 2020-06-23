@@ -1,0 +1,126 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+
+    <style name="Base.Theme.FitApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="colorSecondary">@color/logoColor</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="CircularReveal" parent="Base.Theme.FitApp">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Sunflower.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="Theme.FitApp" parent="Base.Theme.FitApp" />
+
+    <style name="Theme.FitApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="StepCounterTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="TextAppearance.FitApp.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">@color/logoColor</item>
+    </style>
+
+    <style name="InputLayoutOutlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="colorPrimary">@color/logoColor</item>
+        <item name="colorPrimaryDark">@color/logoColor</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textColorPrimary">@color/logoColor</item>
+        <item name="textColor">@color/logoColor</item>
+        <item name="android:textColor">@color/logoColor</item>
+        <item name="font">@color/logoColor</item>
+        <item name="textSize">16sp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="StepCounterPopUpTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="rippleColor">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="textStartPadding">@dimen/margin_small</item>
+        <item name="colorControlHighlight">@color/white</item>
+        <item name="popupMenuBackground">@drawable/rounded</item>
+    </style>
+
+    <style name="ShapeAppearance.Fitapp.FAB" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="colorSecondary">@android:color/holo_orange_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
+    </style>
+
+    <style name="WorkoutsFragmentDialog" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/logoColor</item>
+        <item name="android:colorBackground">@color/colorPrimaryDark</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="FullScreenDialog" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/logoColor</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="actionMenuTextColor">@color/colorAccent</item>
+    </style>
+
+    <style name="DialogSlide">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+    <style name="CardView.CutShape" parent="">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">@dimen/margin_small</item>
+    </style>
+
+    <style name="Material.IconButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:minWidth">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+        <item name="rippleColor">?colorOnPrimary</item>
+    </style>
+
+    <style name="BlankRippleColor">
+        <item name="colorControlHighlight">@color/white</item>
+        <item name="rippleColor">@color/white</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Cut.Medium" parent="Widget.AppCompat.PopupMenu">
+        <item name="cornerSize">16dp</item>
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerFamilyBottomLeft">cut</item>
+        <item name="popupMenuBackground">@color/fitapp_blue</item>
+        <item name="cornerFamily">cut</item>
+        <item name="android:popupElevation">8dp</item>
+    </style>
+
+    <style name="WorkoutPopUp" parent="Widget.AppCompat.Light.PopupMenu">
+        <item name="popupMenuBackground">@color/white</item>
+    </style>
+
+</resources>

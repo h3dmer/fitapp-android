@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:ellipsize="end"
+    android:id="@+id/textField"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:maxLines="1"
+    android:padding="16dp"
+    android:textAppearance="?attr/textAppearanceSubtitle1"
+    android:textColor="@color/logoColor"
+    tools:text="Some sample text"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android" />
