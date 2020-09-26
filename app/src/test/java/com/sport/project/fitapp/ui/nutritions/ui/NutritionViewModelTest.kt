@@ -50,14 +50,16 @@ class NutritionViewModelTest {
 
     @Test
     fun burnedCaloriesFromExercises_withSuccess() {
+        //Given
         val expected = NutritionViewState.NutritionSuccess(NaturalExercise()).data
-
-        whenever(repo.calculateCaloriesExercises(CalculateExercise()))
-            .thenReturn(Single.just(NaturalExercise()))
-
         viewModel = NutritionViewModel(repo, compositeDisposable)
         viewModel.burnedCaloriesFromExercises(CalculateExercise())
 
+        // When
+        whenever(repo.calculateCaloriesExercises(CalculateExercise()))
+            .thenReturn(Single.just(NaturalExercise()))
+
+        // Then
         Truth.assert_()
             .that(expected)
             .isEqualTo(viewModel.fetchExercises.value)

@@ -27,7 +27,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Jednostki"
+            android:text="Units"
             android:textColor="@color/logoColor"
             android:textSize="32sp"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +47,7 @@
                 android:layout_marginEnd="8dp"
                 android:checked="true"
                 android:fontFamily="@font/poppins"
-                android:text="Metryczne (kg/cm)"
+                android:text="(kg/cm)"
                 android:textColor="@color/logoColor"
                 android:textSize="16sp" />
 
@@ -58,7 +58,7 @@
                 android:layout_marginStart="8dp"
                 android:checked="false"
                 android:fontFamily="@font/poppins"
-                android:text="Imperialne (lbs/in)"
+                android:text="(lbs/in)"
                 android:textColor="@color/logoColor"
                 android:textSize="16sp" />
 
@@ -71,7 +71,7 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/poppins"
             android:gravity="center"
-            android:text="Płeć"
+            android:text="Gender"
             android:textColor="@color/logoColor"
             android:textSize="32sp"
             app:layout_constraintTop_toBottomOf="@id/unitsRadioGroup" />
@@ -91,7 +91,7 @@
                 android:layout_marginEnd="8dp"
                 android:checked="true"
                 android:fontFamily="@font/poppins"
-                android:text="Mężczyzna"
+                android:text="Male"
                 android:textColor="@color/logoColor"
                 android:textSize="16sp" />
 
@@ -102,7 +102,7 @@
                 android:layout_marginStart="8dp"
                 android:checked="false"
                 android:fontFamily="@font/poppins"
-                android:text="Kobieta"
+                android:text="Female"
                 android:textColor="@color/logoColor"
                 android:textSize="16sp" />
 
@@ -116,7 +116,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:hint="Wiek"
+            android:hint="Age"
             app:boxStrokeColor="@color/logoColor"
             app:boxStrokeWidth="2dp"
             app:layout_constraintEnd_toStartOf="@+id/weightTextInputLayout"
@@ -140,7 +140,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="32dp"
-            android:hint="Waga"
+            android:hint="Weight"
             app:boxStrokeColor="@color/logoColor"
             app:boxStrokeWidth="2dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -165,7 +165,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
-            android:hint="Wzrost"
+            android:hint="Height"
             app:boxStrokeColor="@color/logoColor"
             app:boxStrokeWidth="2dp"
             app:layout_constraintEnd_toStartOf="@+id/activityTextInputLayout"
@@ -190,10 +190,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
-            android:hint="Aktywność"
+            android:hint="Active"
             app:boxStrokeColor="@color/logoColor"
             app:boxStrokeWidth="2dp"
-            app:helperText="Aktywność w tygodniu"
+            app:helperText="Week activity"
             app:helperTextEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/heightTextInputLayout"
@@ -220,7 +220,7 @@
             android:fontFamily="@font/poppins"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:text="oblicz"
+            android:text="calculate"
             android:textSize="24sp"
             android:onClick="@{() -> fragment.calculateCalories()}"
             app:backgroundTint="@color/logoColor"
